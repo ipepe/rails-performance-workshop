@@ -29,3 +29,23 @@ services:
     depends_on:
       - web
 
+  open_tracing_jaeger:
+    image: jaegertracing/all-in-one:1.53
+    expose:
+      - 5775/udp # accept zipkin.thrift over compact thrift protocol
+      - 6831/udp # accept jaeger.thrift over compact thrift protocol
+      - 6832/udp # accept jaeger.thrift over binary thrift protocol
+      - 5778     # serve configs
+      - 16686    # serve frontend
+      - 14250    # accept jaeger.thrift over binary thrift protocol (deprecated, used by legacy clients only)
+      - 14268    # accept jaeger.thrift over compact thrift protocol
+      - 14269    # accept jaeger.thrift over binary thrift protocol
+      - 9411     # Zipkin HTTP collector
+      - 4318     # Jaeger remote sampling HTTP server
+      - 4317     # Jaeger remote sampling gRPC server
+    ports:
+      - 16686:16686
+      - 4318:4318
+
+
+

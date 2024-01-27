@@ -48,3 +48,5 @@ group :test do
 end
 
 gem "bootstrap-kaminari-views", "~> 0.0.5"
+
+gem "jaeger-client", "~> 1.3"
