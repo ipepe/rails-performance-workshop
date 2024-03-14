@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+ruby '~> 3.1.4'
+
+gem 'roda'
+
+gem 'thin', require: false # Use Thin as the webserver
