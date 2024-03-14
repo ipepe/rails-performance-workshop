@@ -4,4 +4,5 @@ ruby '~> 3.1.4'
 
 gem 'roda'
 
-gem 'thin', require: false # Use Thin as the webserver
+gem 'puma', '~> 5.0'
+gem 'rack', '2.2.8'
