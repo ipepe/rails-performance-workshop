@@ -7,7 +7,7 @@ class App < Roda
     end
 
     r.get "slow_service" do
-      sleep(1)
+      sleep(r.params.fetch("sleep_time", 1).to_i)
       "This is a cool pet you might like!"
     end
 
