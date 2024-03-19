@@ -23,7 +23,7 @@ services:
 
   web:
     build: .
-    command: bundle exec rails s -p 3001 -e production
+    command: bundle exec rails s -p 3001
     environment:
       - APPSIGNAL_PUSH_API_KEY=${APPSIGNAL_PUSH_API_KEY}
     ports:
@@ -38,7 +38,7 @@ services:
 
   traffic:
     build: .
-    command: bundle exec rake traffic:go[web:3000]
+    command: bundle exec rake traffic:go[web:3001]
     deploy:
       replicas: 4 # decrease to 1 or 2 if you have slow computer
     environment:
